@@ -5,26 +5,26 @@
         <title>JavaScript on the beach</title>
     </head>
     <body>
+        <form action="javascript:calcul()">
+            <label>Montant emprunté</label>
+            <input type="text" name="price" id="price">
+            <label>Durée de l'emprunt</label>
+            <input type="text" name="times" id="times">
+            <label>Taux D'intérêt</label>
+            <input type="text" name="taux" id="taux">
+            <input type="submit" name="submit" value="Soumettre">
+        </form>
         <script type="text/javascript">
-            function Voiture(modele) {
-                this.modele = modele;
+
+            function calcul(){
+                var value = Number(document.getElementById('price').value);
+                var time = Number(document.getElementById('times').value)*12;
+                var taux = Number(document.getElementById('taux').value)/1200;
+
+                var result = taux * ( value / ( 1 - ( 1 / ( Math.pow ( ( 1 + taux ), time ) ) ) ) ) ;
+
+                console.log(result);
             }
-
-            var tuning = new Voiture(206);
-            console.log(tuning.modele);
-
-            Voiture.prototype.demarrer = () => {
-                alert("Ma " + this.modele + " fait Vroum !");
-            };
-
-            Voiture.prototype.roues = true;
-            Voiture.prototype.demarrer();
-
-            function VoitureTunning(){
-                Voiture.apply(this, arguments);
-            }
-
-            Object.getPrototypeOf(michel);
 
         </script>
     </body>
