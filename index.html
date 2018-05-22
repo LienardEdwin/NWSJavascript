@@ -6,44 +6,25 @@
     </head>
     <body>
         <script type="text/javascript">
-            // Object.prototype
-
-            if (typeof Object.create !== 'function'){
-                Object.create = function(truc){
-                    var F = function () {};
-                    F.prototype = truc;
-                    return new F();
-                }
+            function Voiture(modele) {
+                this.modele = modele;
             }
 
-            var machin = Object.create("bordel");
+            var tuning = new Voiture(206);
+            console.log(tuning.modele);
 
-            // Notion de Réflexion
-
-            typeof vol.toString(); // 'function'
-            typeof vol.constructor(); // 'function'
-
-            vol.hasOwnProperty('couleur'); // true
-            vol.hasOwnProperty('constructor'); // false
-
-            delete toto.couleur;
-
-            var turtle;
-            turtle = "coucou";
-
-            function tamere() {
-                alert(turtle);
-            }
-
-            tamere();
-
-            var superVariable = {};
-
-            superVariable.toto = {
-                couleur : "rouge",
-                longueur : 48
+            Voiture.prototype.demarrer = () => {
+                alert("Ma " + this.modele + " fait Vroum !");
             };
 
+            Voiture.prototype.roues = true;
+            Voiture.prototype.demarrer();
+
+            function VoitureTunning(){
+                Voiture.apply(this, arguments);
+            }
+
+            Object.getPrototypeOf(michel);
 
         </script>
     </body>
