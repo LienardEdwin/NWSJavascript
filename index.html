@@ -5,7 +5,7 @@
         <title>JavaScript on the beach</title>
     </head>
     <body>
-        <form action="javascript:calcul()">
+        <form name="data" action="javascript:calcul()">
             <label>Montant emprunté</label>
             <input type="text" name="price" id="price">
             <label>Durée de l'emprunt</label>
@@ -17,9 +17,9 @@
         <script type="text/javascript">
 
             function calcul(){
-                var value = Number(document.getElementById('price').value);
-                var time = Number(document.getElementById('times').value)*12;
-                var taux = Number(document.getElementById('taux').value)/1200;
+                var value = Number(document.data.price.value);
+                var time = Number(document.data.times.value)*12;
+                var taux = Number(document.data.taux.value)/1200;
 
                 var result = taux * ( value / ( 1 - ( 1 / ( Math.pow ( ( 1 + taux ), time ) ) ) ) ) ;
 
