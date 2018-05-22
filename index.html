@@ -6,32 +6,44 @@
     </head>
     <body>
         <script type="text/javascript">
-            var toto = {};
-            var toto = {
-                couleur :"rouge",
-                taille : 22
+            // Object.prototype
+
+            if (typeof Object.create !== 'function'){
+                Object.create = function(truc){
+                    var F = function () {};
+                    F.prototype = truc;
+                    return new F();
+                }
+            }
+
+            var machin = Object.create("bordel");
+
+            // Notion de Réflexion
+
+            typeof vol.toString(); // 'function'
+            typeof vol.constructor(); // 'function'
+
+            vol.hasOwnProperty('couleur'); // true
+            vol.hasOwnProperty('constructor'); // false
+
+            delete toto.couleur;
+
+            var turtle;
+            turtle = "coucou";
+
+            function tamere() {
+                alert(turtle);
+            }
+
+            tamere();
+
+            var superVariable = {};
+
+            superVariable.toto = {
+                couleur : "rouge",
+                longueur : 48
             };
 
-            document.write(toto.couleur);
-            document.write(toto["couleur"]);
-
-            var titi;
-            console.log(titi.tamere); // -> undefined
-
-            var x = toto["couleur"] || "erreur";
-
-            var vol;
-            vol.horaire // -> undefined
-            vol.horaire.siege // TypeError
-            vol.horaire && vol.horaire.siege // -> undefined
-
-            toto.couleur = "jaune";
-            toto.tomate = "truc";
-
-            var x = toto;
-
-            x.prenom = "Jacky";
-            var machin = toto.prenom;
 
         </script>
     </body>
