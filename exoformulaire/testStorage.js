@@ -1,4 +1,4 @@
-function testStorage(){
+setTimeout(function testStorage(){
     let nom = document.getElementById('nom').value;
     let prenom = document.getElementById('prenom').value;
     let mail = document.getElementById('mail').value;
@@ -12,4 +12,4 @@ function testStorage(){
     let toto = sessionStorage.getItem("Nom");
 
 
-}
+});

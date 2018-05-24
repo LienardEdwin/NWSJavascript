@@ -1,17 +1,22 @@
+function  testConnection() {
 
-    let nom = document.getElementById('nom');
-    let prenom = document.getElementById('prenom');
-    let mail = document.getElementById('mail');
-    let mdp = document.getElementById('mdp');
 
-    if (nom.value.length > 0 && prenom.value.length > 0 && mail.value.length > 0 && mdp.value.length > 0) {
-        var xhr = new XMLHttpRequest();
+    let nom = document.data.nom.value;
+    let prenom = document.data.prenom.value;
+    let mail = document.data.mail.value;
+    let mdp = document.data.mdp.value;
+
+    if (nom.length > 0 && prenom.length > 0 && mail.length > 0 && mdp.length > 0) {
+        let xhr = new XMLHttpRequest();
         xhr.open("POST", "ajax.php", true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
         xhr.onreadystatechange = function() {
-            if(xhr.readyState == 4 && xhr.status == 200) {
-                alert("aux gogols !!!");
+            if(xhr.readyState == 4) {
+                if (xhr.status >= 200 && xhr.status < 304) {
+                    console.log("connexion!");
+
+                }
             }
         };
 
@@ -20,8 +25,21 @@
         xhr.send(form);
     }
 
-    else {
-        alert("à Malibu");
-        return false;
-    }
+    setTimeout(function testStorage(){
+        let nom = document.getElementById('nom').value;
+        let prenom = document.getElementById('prenom').value;
+        let mail = document.getElementById('mail').value;
+        let pwd = document.getElementById('mdp').value;
+
+        sessionStorage.setItem("Nom", nom);
+        sessionStorage.setItem("Prenom", prenom);
+        sessionStorage.setItem("email", mail);
+        sessionStorage.setItem("Mot de passe", pwd);
+
+        let toto = sessionStorage.getItem("Nom");
+
+
+    });
+
+}
 

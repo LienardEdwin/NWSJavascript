@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeux</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<div class="cercle" id="cercle">
+
+    </div>
+<script>
+    document.getElementById('cercle').addEventListener('keypress', keycode());
+    function keycode(e) {
+        let cercle = document.getElementById('cercle');
+        switch (e.keyCode) {
+            case 37 :
+                cercle.style.backgroundColor = 'pink';
+                alert('bonjour');
+                break;
+            case 39 :
+                cercle.style.backgroundColor = 'green';
+                alert('bonjour');
+                break;
+            case 38 :
+                cercle.style.backgroundColor = 'yellow';
+                alert('bonjour');
+                break;
+            case 40 :
+                cercle.style.backgroundColor = 'black';
+                alert('bonjour');
+                break;
+            default :
+                break;
+        }
+    }
+</script>
+</body>
+</html>

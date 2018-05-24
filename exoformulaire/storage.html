@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>EXO</title>
-    <script type="text/javascript" src="testStorage.js"></script>
+    <script type="text/javascript" src="./testCo.js"></script>
 </head>
 <body>
-<form action="ajax.php" method="post">
+<form action="ajax.php" method="post" name="data">
     <div>
         <label for="nom">Nom : </label>
         <input type="text" id="nom" name="nom" />
@@ -23,10 +23,10 @@
         <label for="mdp">Password : </label>
         <input type="password" id="mdp" name="mdp" />
     </div>
-    <h1 ondblclick="testStorage()">Envoyer !!!</h1>
+    <h1 ondblclick="testConnection()">Envoyer !!!</h1>
 </form>
 <script>
-    var xhr = new XMLHttpRequest();
+   /* var xhr = new XMLHttpRequest();
    ;
     console.log(xhr);
 
@@ -45,12 +45,12 @@
 
 
     window.onload = function(){
-        setInterval(function(){
+        setTimeout(function(){
             alert("Hello");
         }, 10000);
     };
 
-
+   */
 </script>
 </body>
 </html>
